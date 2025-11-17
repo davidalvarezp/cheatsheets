@@ -2,8 +2,6 @@
 
 # Git Cheat Sheet
 
----
-
 ## Stage & Snapshot
 
 Working with snapshots and the Git staging area.
