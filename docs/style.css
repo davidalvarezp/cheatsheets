@@ -32,13 +32,15 @@ pre, code {
 
 /* General Styles for Tables */
 table {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     border-collapse: collapse;
-    margin: 20px 0;
+    table-layout: auto; /* auto permite que crezcan según contenido */
 }
 
 /* Table Header */
 th {
+    white-space: normal !important;
     background-color: #333;
     color: #e0e0e0;
     padding: 12px;
@@ -47,6 +49,7 @@ th {
 
 /* Table Data */
 td {
+    white-space: normal !important;
     background-color: #222;
     color: #e0e0e0;
     padding: 10px;
