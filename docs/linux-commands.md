@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../style.css">
+
 # Linux Commands Cheatsheet
 
 ## Keyboard Shortcuts
