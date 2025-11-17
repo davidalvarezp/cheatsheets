@@ -6,3 +6,5 @@ minima:
   skin: dark
 
 markdown: kramdown
+plugins:
+  - jekyll-theme-minima
