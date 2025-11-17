@@ -35,7 +35,6 @@ table {
     width: 100% !important;
     max-width: 100% !important;
     border-collapse: collapse;
-    table-layout: auto; /* auto permite que crezcan según contenido */
 }
 
 /* Table Header */
