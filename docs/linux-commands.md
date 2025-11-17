@@ -4,24 +4,25 @@
 
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [Users and Groups](#users-and-groups)
-- [Searching](#shearching)
+- [Searching](#searching)
 - [SSH Login & Remote Access](#ssh-login--remote-access)
-- [Directory Navigation](directory-navigation)
+- [Directory Navigation](#directory-navigation)
 - [Files](#files)
-  - Listing
-  - File Operations
-  - File Viewing / Editing
-  - File Permissions
-- Packages
-  - Debian/Ubuntu
-  - Universal
-- Processes
-- Network
-- Hardware Information
-- Disk Usage
-- File Compression
-- File Transfer
-- Shell Commands & Variables
+  - [Listing](#listing)
+  - [File Operations](#file-operations)
+  - [File Viewing / Editing](#file-viewing--editing)
+  - [File Permissions](#file-permissions)
+  - [File Compression](#file-compresion)
+  - [File Transfer](#file-transfer)
+- [Packages](#packages)
+  - [Debian/Ubuntu](#debianubuntu)
+  - [RedHat/CentOS/Fedora](#redhatcentosfedora)
+  - [Universal](#universal)
+- [Processes](#processes)
+- [Network](#network)
+- [Hardware Information](#hardware-information)
+- [Disk Usage](#disk-usage)
+- [Shell Commands & Variables ](#shell-commands--variables)
 
 ---
 
@@ -152,7 +153,7 @@
 
 ---
 
-## File Permissions
+### File Permissions
 
 | Command | Description |
 |---------|-------------|
@@ -164,7 +165,37 @@
 
 ---
 
-## Packages (Debian/Ubuntu)
+## File Compression
+
+| Command | Description |
+|---------|-------------|
+| `tar cf [archive.tar] [dir]` | Create tar archive. |
+| `tar xf [archive.tar]` | Extract tar archive. |
+| `tar czf [archive.tar.gz]` | Create tar.gz archive. |
+| `gzip [file]` | Compress file. |
+| `gunzip [file.gz]` | Decompress gzip. |
+| `bzip2 [file]` | Compress file (.bz2). |
+| `bunzip2 [file.bz2]` | Decompress .bz2. |
+| `shred -u [file]` | Overwrite then delete file. |
+
+---
+
+## File Transfer
+
+| Command | Description |
+|---------|-------------|
+| `scp [src] [user]@[host]:[dest]` | Secure copy to remote. |
+| `rsync -a [src] [user]@[host]:[dest]` | Sync directories. |
+| `wget [url]` | Download file. |
+| `curl -O [url]` | Download with curl. |
+| `ftp [host]` | FTP transfer. |
+| `sftp [user]@[host]` | Secure file transfer. |
+
+---
+
+## Packages 
+
+### Debian/Ubuntu
 
 | Command | Description |
 |---------|-------------|
@@ -178,7 +209,7 @@
 
 ---
 
-## Packages (Red Hat, CentOS, Fedora)
+### RedHat/CentOS/Fedora
 
 | Command | Description |
 |---------|-------------|
@@ -190,7 +221,7 @@
 
 ---
 
-## Packages (Universal)
+### Universal
 
 | Command | Description |
 |---------|-------------|
@@ -285,34 +316,6 @@
 | `findmnt` | Show mount points. |
 | `fdisk -l` | Disk partitions. |
 | `mount [device] [mount]` | Mount device. |
-
----
-
-## File Compression
-
-| Command | Description |
-|---------|-------------|
-| `tar cf [archive.tar] [dir]` | Create tar archive. |
-| `tar xf [archive.tar]` | Extract tar archive. |
-| `tar czf [archive.tar.gz]` | Create tar.gz archive. |
-| `gzip [file]` | Compress file. |
-| `gunzip [file.gz]` | Decompress gzip. |
-| `bzip2 [file]` | Compress file (.bz2). |
-| `bunzip2 [file.bz2]` | Decompress .bz2. |
-| `shred -u [file]` | Overwrite then delete file. |
-
----
-
-## File Transfer
-
-| Command | Description |
-|---------|-------------|
-| `scp [src] [user]@[host]:[dest]` | Secure copy to remote. |
-| `rsync -a [src] [user]@[host]:[dest]` | Sync directories. |
-| `wget [url]` | Download file. |
-| `curl -O [url]` | Download with curl. |
-| `ftp [host]` | FTP transfer. |
-| `sftp [user]@[host]` | Secure file transfer. |
 
 ---
 
