@@ -151,8 +151,6 @@
 | `wc -w [file]` | Count words, lines, bytes. |
 | `ls | xargs wc` | Count lines/words in directory files. |
 
----
-
 ### File Permissions
 
 | Command | Description |
@@ -162,8 +160,6 @@
 | `chmod 766 [file]` | rwxrw-rw-. |
 | `chown [user] [file]` | Change owner. |
 | `chown [user]:[group] [file]` | Change owner and group. |
-
----
 
 ## File Compression
 
@@ -177,8 +173,6 @@
 | `bzip2 [file]` | Compress file (.bz2). |
 | `bunzip2 [file.bz2]` | Decompress .bz2. |
 | `shred -u [file]` | Overwrite then delete file. |
-
----
 
 ## File Transfer
 
@@ -207,8 +201,6 @@
 | `sudo dpkg -i [file.deb]` | Install `.deb` package. |
 | `sudo dpkg -l` | List dpkg installed packages. |
 
----
-
 ### RedHat/CentOS/Fedora
 
 | Command | Description |
@@ -218,8 +210,6 @@
 | `yum list installed` | List installed YUM packages. |
 | `sudo dnf install [pkg]` | Install via DNF. |
 | `sudo rpm -i [file.rpm]` | Install `.rpm` file. |
-
----
 
 ### Universal
 
