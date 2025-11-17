@@ -1,0 +1,8 @@
+title: "CheatSheets"
+description: "SysAdmin & CyberSec CheatSheets"
+theme: minima
+
+minima:
+  skin: dark
+
+markdown: kramdown
