@@ -2,6 +2,29 @@
 
 # Linux Commands Cheatsheet
 
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [Users and Groups](#users-and-groups)
+- [Searching](#shearching)
+- [SSH Login & Remote Access](#ssh-login--remote-access)
+- [Directory Navigation](directory-navigation)
+- [Files](#files)
+  - Listing
+  - File Operations
+  - File Viewing / Editing
+  - File Permissions
+- Packages
+  - Debian/Ubuntu
+  - Universal
+- Processes
+- Network
+- Hardware Information
+- Disk Usage
+- File Compression
+- File Transfer
+- Shell Commands & Variables
+
+---
+
 ## Keyboard Shortcuts
 
 | Shortcut | Description |
