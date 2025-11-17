@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="_style.css">
+<link rel="stylesheet" href="style.css">
 
 # Linux Commands Cheatsheet
 
