@@ -294,4 +294,4 @@
 | `unset VAR` | Remove variable. |
 | `echo $VAR` | Print variable. |
 | `set`, `declare` | Manage variables. |
-"""
+
