@@ -2,6 +2,7 @@
 
 # Linux Commands Cheatsheet
 
+## Index
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [Users and Groups](#users-and-groups)
 - [Searching](#searching)
@@ -12,36 +13,36 @@
   - [File Operations](#file-operations)
   - [File Viewing / Editing](#file-viewing--editing)
   - [File Permissions](#file-permissions)
-  - [File Compression](#file-compresion)
+  - [File Compression](#file-compression)
   - [File Transfer](#file-transfer)
 - [Packages](#packages)
-  - [Debian/Ubuntu](#debianubuntu)
-  - [RedHat/CentOS/Fedora](#redhatcentosfedora)
+  - [Debian / Ubuntu](#debian--ubuntu)
+  - [RedHat / CentOS / Fedora](#redhat--centos--fedora)
   - [Universal](#universal)
 - [Processes](#processes)
 - [Network](#network)
 - [Hardware Information](#hardware-information)
 - [Disk Usage](#disk-usage)
-- [Shell Commands & Variables ](#shell-commands--variables)
+- [Shell Commands & Variables](#shell-commands--variables)
 
 ---
 
 ## Keyboard Shortcuts
 
 | Shortcut | Description |
-|---------|-------------|
-| **Ctrl + C** | Kill the process running in the terminal. |
-| **Ctrl + Z** | Stop the current process (resume with `fg` or `bg`). |
-| **Ctrl + W** | Cut one word before the cursor. |
-| **Ctrl + U** | Cut the part of the line before the cursor. |
-| **Ctrl + K** | Cut the part of the line after the cursor. |
-| **Ctrl + Y** | Paste from clipboard. |
-| **Ctrl + R** | Recall last command that matches provided characters. |
-| **Ctrl + O** | Run the previously recalled command. |
-| **Ctrl + G** | Exit command history without executing. |
-| **clear** | Clear the terminal screen. |
-| **!!** | Run the last command again. |
-| **exit** | Log out of the current session. |
+|----------|-------------|
+| **Ctrl + C** | Terminate running process. |
+| **Ctrl + Z** | Suspend process (resume: `fg`, `bg`). |
+| **Ctrl + W** | Delete previous word. |
+| **Ctrl + U** | Delete from cursor to start of line. |
+| **Ctrl + K** | Delete from cursor to end of line. |
+| **Ctrl + Y** | Paste last removed text. |
+| **Ctrl + R** | Search command history. |
+| **Ctrl + O** | Execute displayed history command. |
+| **Ctrl + G** | Cancel history search. |
+| **!!** | Repeat last command. |
+| **clear** | Clear terminal output. |
+| **exit** | Exit current session. |
 
 ---
 
@@ -49,19 +50,17 @@
 
 | Command | Description |
 |---------|-------------|
-| `who` | Display who is currently logged in. |
-| `w` | Show logged-in users and their activity. |
-| `finger [user]` | Show user information. |
-| `sudo useradd [user]` | Create a new user. |
-| `sudo adduser [user]` | Create a new user (guided interface). |
-| `sudo userdel [user]` | Delete a user. |
+| `who`, `w` | Show logged-in users. |
+| `finger [user]` | Show user details. |
+| `sudo adduser [user]` | Create user (interactive). |
+| `sudo useradd [user]` | Create user (manual). |
+| `sudo userdel [user]` | Delete user. |
 | `sudo usermod -aG [group] [user]` | Add user to group. |
-| `passwd` | Change own password. |
-| `sudo passwd [user]` | Change another user's password. |
-| `sudo groupadd [group]` | Create a new group. |
-| `sudo groupdel [group]` | Delete a group. |
-| `sudo groupmod -n [new] [old]` | Rename a group. |
-| `sudo [command]` | Temporarily elevate privileges. |
+| `passwd`, `sudo passwd [user]` | Change password. |
+| `sudo groupadd [group]` | Create group. |
+| `sudo groupdel [group]` | Delete group. |
+| `sudo groupmod -n [new] [old]` | Rename group. |
+| `sudo [command]` | Run with elevated privileges. |
 
 ---
 
@@ -69,16 +68,16 @@
 
 | Command | Description |
 |---------|-------------|
-| `find [path] -name [pattern]` | Find files matching a pattern. |
-| `find [path] -size +100M` | Find files bigger than specified size. |
-| `grep [pattern] [file]` | Search pattern in file. |
+| `find [path] -name [pattern]` | Search files by name. |
+| `find [path] -size +100M` | Search files by size. |
+| `grep [pattern] [file]` | Search inside file. |
 | `grep -r [pattern] [dir]` | Recursive search. |
-| `locate [name]` | Locate all files related to a name. |
-| `whereis [command]` | Find source, binary, and man page for a command. |
-| `which [command]` | Search command path in `$PATH`. |
-| `awk '[pattern] {print $0}' [file]` | Print lines matching pattern. |
-| `sed 's/[old]/[new]/' [file]` | Replace text. |
-| `chgrp [group] [file/dir]` | Change group ownership. |
+| `locate [name]` | Search by filename index. |
+| `whereis [command]` | Show binary, source and manpath. |
+| `which [command]` | Show executable path. |
+| `awk '/pattern/ {print}' [file]` | Print matching lines. |
+| `sed 's/old/new/' [file]` | Replace text. |
+| `chgrp [group] [file]` | Change group owner. |
 
 ---
 
@@ -86,13 +85,13 @@
 
 | Command | Description |
 |---------|-------------|
-| `ssh [user]@[host]` | Connect to remote host. |
-| `ssh -p [port] [user]@[host]` | Connect via specified port. |
+| `ssh [user]@[host]` | SSH login. |
+| `ssh -p [port] [user]@[host]` | SSH via custom port. |
 | `ssh-keygen` | Generate SSH key pair. |
-| `sudo service sshd start` | Start SSH daemon. |
-| `scp [file] [user]@[host]:[path]` | Secure file copy. |
-| `sftp [user]@[host]` | Interactive file transfer via SFTP. |
-| `telnet [host]` | Connect via Telnet (port 23). |
+| `sudo systemctl start sshd` | Start SSH service. |
+| `scp [file] [user]@[host]:[dest]` | Secure file copy. |
+| `sftp [user]@[host]` | SFTP session. |
+| `telnet [host]` | Telnet connection. |
 
 ---
 
@@ -101,12 +100,11 @@
 | Command | Description |
 |---------|-------------|
 | `pwd` | Show current directory. |
-| `cd` | Go to home directory. |
-| `cd ~` | Go to home directory. |
-| `cd ..` | Move up one level. |
-| `cd -` | Return to previous directory. |
-| `cd [path]` | Change to specified directory. |
-| `dirs` | Show directory stack. |
+| `cd`, `cd ~` | Go to home directory. |
+| `cd ..` | Up one directory. |
+| `cd -` | Previous directory. |
+| `cd [path]` | Change directory. |
+| `dirs` | Directory stack. |
 
 ---
 
@@ -116,114 +114,104 @@
 
 | Command | Description |
 |---------|-------------|
-| `ls` | List files and directories. |
-| `ls -a` | List including hidden files. |
-| `ls -l` | Long listing format. |
+| `ls` | List files. |
+| `ls -a` | Include hidden files. |
+| `ls -l` | Long format listing. |
 
 ### File Operations
 
 | Command | Description |
 |---------|-------------|
 | `mkdir [dir]` | Create directory. |
-| `rm [file]` | Remove file. |
-| `rm -r [dir]` | Remove directory recursively. |
-| `rm -rf [dir]` | Remove without confirmation. |
-| `cp [src] [dest]` | Copy file. |
-| `cp -r [src] [dest]` | Copy directory recursively. |
-| `mv [src] [dest]` | Move or rename. |
-| `ln -s [path]/[file] [link]` | Create symbolic link. |
 | `touch [file]` | Create empty file. |
+| `rm [file]` | Delete file. |
+| `rm -r [dir]` | Recursive delete. |
+| `rm -rf [dir]` | Force delete. |
+| `cp [src] [dest]` | Copy file. |
+| `cp -r [src] [dest]` | Copy directory. |
+| `mv [src] [dest]` | Move/rename. |
+| `ln -s [path] [link]` | Create symbolic link. |
 
 ### File Viewing / Editing
 
 | Command | Description |
 |---------|-------------|
-| `cat [file]` | Show file contents. |
-| `cat [src] >> [dest]` | Append contents to file. |
-| `head [file]` | Show first 10 lines. |
-| `tail [file]` | Show last 10 lines. |
-| `more [file]` | Paginated viewing. |
-| `less [file]` | Advanced paginated viewing. |
-| `nano [file]` | Edit with nano. |
-| `vi [file]` / `vim [file]` | Edit with Vi/Vim. |
-| `gpg -c [file]` | Encrypt file. |
-| `gpg [file].gpg` | Decrypt `.gpg` file. |
-| `wc -w [file]` | Count words, lines, bytes. |
-| `ls | xargs wc` | Count lines/words in directory files. |
+| `cat [file]` | Print file. |
+| `head [file]` | First lines. |
+| `tail [file]` | Last lines. |
+| `less` / `more` | Paginated view. |
+| `nano`, `vim` | CLI editors. |
+| `gpg -c [file]` | Encrypt. |
+| `gpg [file].gpg` | Decrypt. |
+| `wc [file]` | Count words/lines/bytes. |
 
 ### File Permissions
 
 | Command | Description |
 |---------|-------------|
-| `chmod 777 [file]` | Full permissions (rwxrwxrwx). |
-| `chmod 755 [file]` | rwxr-xr-x. |
-| `chmod 766 [file]` | rwxrw-rw-. |
+| `chmod [mode] [file]` | Change permissions. |
 | `chown [user] [file]` | Change owner. |
-| `chown [user]:[group] [file]` | Change owner and group. |
+| `chown [user]:[group] [file]` | Change owner/group. |
+
+---
 
 ## File Compression
 
 | Command | Description |
 |---------|-------------|
-| `tar cf [archive.tar] [dir]` | Create tar archive. |
-| `tar xf [archive.tar]` | Extract tar archive. |
-| `tar czf [archive.tar.gz]` | Create tar.gz archive. |
-| `gzip [file]` | Compress file. |
-| `gunzip [file.gz]` | Decompress gzip. |
-| `bzip2 [file]` | Compress file (.bz2). |
-| `bunzip2 [file.bz2]` | Decompress .bz2. |
-| `shred -u [file]` | Overwrite then delete file. |
+| `tar cf [archive.tar] [dir]` | Create .tar. |
+| `tar xf [archive.tar]` | Extract .tar. |
+| `tar czf [archive.tar.gz] [dir]` | Create .tar.gz. |
+| `gzip`, `gunzip` | Compress/decompress gzip. |
+| `bzip2`, `bunzip2` | Compress/decompress bzip2. |
+| `shred -u [file]` | Secure delete. |
+
+---
 
 ## File Transfer
 
 | Command | Description |
 |---------|-------------|
-| `scp [src] [user]@[host]:[dest]` | Secure copy to remote. |
-| `rsync -a [src] [user]@[host]:[dest]` | Sync directories. |
-| `wget [url]` | Download file. |
+| `scp [src] [user]@[host]:[dest]` | Secure copy. |
+| `rsync -a [src] [host:dest]` | Sync directories. |
+| `wget [url]` | Download via HTTP/FTP. |
 | `curl -O [url]` | Download with curl. |
-| `ftp [host]` | FTP transfer. |
-| `sftp [user]@[host]` | Secure file transfer. |
+| `ftp [host]` | FTP client. |
+| `sftp [user]@[host]` | Secure FTP. |
 
 ---
 
-## Packages 
+## Packages
 
-### Debian/Ubuntu
-
-| Command | Description |
-|---------|-------------|
-| `sudo apt-get install [pkg]` | Install package via apt-get. |
-| `sudo apt install [pkg]` | Install package (new APT). |
-| `apt search [keyword]` | Search APT repository. |
-| `apt list` | List installed APT packages. |
-| `apt show [pkg]` | Show package information. |
-| `sudo dpkg -i [file.deb]` | Install `.deb` package. |
-| `sudo dpkg -l` | List dpkg installed packages. |
-
-### RedHat/CentOS/Fedora
+### Debian / Ubuntu
 
 | Command | Description |
 |---------|-------------|
-| `sudo yum install [pkg]` | Install package via YUM. |
-| `yum search [keyword]` | Search YUM repository. |
-| `yum list installed` | List installed YUM packages. |
+| `sudo apt install [pkg]` | Install package. |
+| `apt search [term]` | Search package. |
+| `apt list` | List packages. |
+| `apt show [pkg]` | Package info. |
+| `sudo dpkg -i [file.deb]` | Install .deb. |
+| `dpkg -l` | List dpkg packages. |
+
+### RedHat / CentOS / Fedora
+
+| Command | Description |
+|---------|-------------|
+| `sudo yum install [pkg]` | Install via YUM. |
+| `yum search [term]` | Search YUM repo. |
+| `yum list installed` | Installed packages. |
 | `sudo dnf install [pkg]` | Install via DNF. |
-| `sudo rpm -i [file.rpm]` | Install `.rpm` file. |
+| `sudo rpm -i [file.rpm]` | Install .rpm file. |
 
 ### Universal
 
 | Command | Description |
 |---------|-------------|
-| `tar zxvf [file.tar.gz]` | Extract tar.gz file. |
-| `cd [extracted_dir]` | Change to extracted directory. |
-| `./configure && make && make install` | Build and install from source. |
-| `sudo snap install [pkg]` | Install snap package. |
-| `sudo snap find [keyword]` | Search snap store. |
-| `sudo snap list` | List snap packages. |
-| `flatpak install [pkg]` | Install Flatpak package. |
-| `flatpak search [keyword]` | Search Flatpak packages. |
-| `flatpak list` | List installed Flatpaks. |
+| `tar zxvf [file.tar.gz]` | Extract compressed source. |
+| `./configure && make && make install` | Compile and install. |
+| `snap install [pkg]` | Install Snap. |
+| `flatpak install [pkg]` | Install Flatpak. |
 
 ---
 
@@ -231,30 +219,17 @@
 
 | Command | Description |
 |---------|-------------|
-| `top` | View running processes. |
-| `htop` | Interactive process viewer. |
-| `hostname` | Show system hostname. |
-| `hostname -i` | Show system IP address. |
-| `last` | Show last logins. |
-| `last reboot` | Show reboot history. |
-| `date` | Current date and time. |
-| `timedatectl` | Query/change system clock. |
-| `cal` | Show calendar. |
-| `prgrep [keyword]` | List processes by keyword. |
-| `w` | Show logged-in users. |
-| `pidof [process]` | Show PID of process. |
-| `whoami` | Show current user. |
-| `bg` | Resume job in background. |
-| `fg` | Bring job to foreground. |
-| `kill [pid]` | Kill process by ID. |
-| `pkill [name]` | Kill process by name. |
-| `killall [name]` | Kill all matching processes. |
+| `top`, `htop` | Process monitor. |
+| `pidof [name]` | Show PID. |
+| `kill [pid]`, `pkill [name]` | Kill process. |
+| `killall [name]` | Kill multiple processes. |
+| `bg`, `fg` | Manage jobs. |
 | `lsof` | List open files. |
-| `modprobe [module]` | Add kernel module. |
-| `dmesg` | Show boot messages. |
-| `trap "[commands]" [signal]` | Catch shell signals. |
-| `wait` | Wait for process to finish. |
-| `nohup [command] &` | Run process in background. |
+| `dmesg` | Kernel/boot messages. |
+| `whoami` | Current user. |
+| `last`, `last reboot` | Login and reboot logs. |
+| `hostname`, `hostname -i` | Hostname and IP. |
+| `nohup [cmd] &` | Run detached. |
 
 ---
 
@@ -262,16 +237,15 @@
 
 | Command | Description |
 |---------|-------------|
-| `ip addr show` | Show IPs and interfaces. |
-| `ip address add [IP]` | Assign IP to interface. |
-| `ifconfig` | Show IP addresses. |
-| `netstat -tuln` | Show TCP/UDP ports. |
-| `netstat -pnltu` | Show ports with programs. |
-| `whois [domain]` | Query domain info. |
-| `dig [domain]` | DNS lookup. |
-| `dig -x [IP]` | Reverse DNS lookup. |
-| `host [domain]` | IP lookup for domain. |
-| `nslookup [domain]` | Domain lookup. |
+| `ip addr show` | Show IP interfaces. |
+| `ip address add [IP]` | Assign IP. |
+| `ifconfig` | Show IP config. |
+| `netstat -tuln` | Listening ports. |
+| `netstat -pnltu` | Ports with processes. |
+| `whois [domain]` | Domain info. |
+| `dig [domain]`, `dig -x [IP]` | DNS lookup / reverse. |
+| `host [domain]` | Host lookup. |
+| `nslookup [domain]` | DNS query. |
 
 ---
 
@@ -279,18 +253,15 @@
 
 | Command | Description |
 |---------|-------------|
-| `lscpu` | CPU information. |
+| `lscpu` | CPU info. |
 | `lsblk` | Block devices. |
 | `lsusb -tv` | USB tree. |
-| `lshw` | Hardware configuration. |
-| `cat /proc/cpuinfo` | CPU details. |
-| `cat /proc/meminfo` | Memory info. |
-| `cat /proc/mounts` | Mounted filesystems. |
-| `sudo dmidecode` | BIOS hardware info. |
-| `hdparm -i /dev/[dev]` | Disk information. |
-| `hdparm -tT /dev/[dev]` | Disk speed test. |
-| `badblocks -s /dev/[dev]` | Test unreadable blocks. |
-| `pmap` | Memory usage map. |
+| `lshw` | Hardware details. |
+| `/proc/cpuinfo`, `/proc/meminfo` | System hardware files. |
+| `sudo dmidecode` | BIOS/firmware info. |
+| `hdparm -i /dev/[disk]` | Disk info. |
+| `hdparm -tT /dev/[disk]` | Disk performance test. |
+| `badblocks -s /dev/[disk]` | Detect bad blocks. |
 | `lspci -tv` | PCI devices. |
 
 ---
@@ -300,12 +271,12 @@
 | Command | Description |
 |---------|-------------|
 | `du -ah` | Disk usage (all files). |
-| `du -sh` | Disk usage summary. |
-| `df -h` | Free/used disk space. |
-| `df -i` | Free inodes. |
-| `findmnt` | Show mount points. |
-| `fdisk -l` | Disk partitions. |
-| `mount [device] [mount]` | Mount device. |
+| `du -sh` | Summary of directory. |
+| `df -h` | Disk space usage. |
+| `df -i` | Inode usage. |
+| `findmnt` | Mounted filesystems. |
+| `fdisk -l` | Partition list. |
+| `mount [device] [path]` | Mount partition. |
 
 ---
 
@@ -313,16 +284,14 @@
 
 | Command | Description |
 |---------|-------------|
-| `alias name='command'` | Create alias. |
-| `watch -n [sec] [cmd]` | Run command at intervals. |
-| `sleep [time] && [cmd]` | Delay command execution. |
-| `at [hh:mm]` | Schedule job. |
-| `man [cmd]` | Manual page. |
+| `alias name='cmd'` | Create alias. |
+| `watch -n [sec] [cmd]` | Repeat command. |
+| `sleep [time] && cmd` | Delay execution. |
+| `at [hh:mm]` | Schedule a task. |
+| `man [cmd]` | Manual pages. |
 | `history` | Command history. |
-| `let x=value` | Assign integer variable. |
-| `export VAR` | Export variable. |
-| `declare VAR=value` | Declare variable. |
-| `set` | List all shell variables. |
+| `export VAR=value` | Export environment variable. |
 | `unset VAR` | Remove variable. |
-| `echo $VAR` | Print variable value. |
-
+| `echo $VAR` | Print variable. |
+| `set`, `declare` | Manage variables. |
+"""
